@@ -526,6 +526,13 @@ replaced by the contents of the corresponding field."
       (key-at-point . citar-latex-key-at-point)
       (citation-at-point . citar-latex-citation-at-point)
       (list-keys . citar-latex-list-keys)))
+    ((typst-ts-mode) .
+     ((insert-keys . citar-typst-insert-keys)
+      (insert-citation . citar-typst-insert-citation)
+      (insert-edit . citar-typst-insert-edit)
+      (key-at-point . citar-typst-key-at-point)
+      (citation-at-point . citar-typst-citation-at-point)
+      (list-keys . citar-typst-list-keys)))
     ((markdown-mode) .
      ((insert-keys . citar-markdown-insert-keys)
       (insert-citation . citar-markdown-insert-citation)
