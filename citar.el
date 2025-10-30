@@ -527,7 +527,8 @@ replaced by the contents of the corresponding field."
       (citation-at-point . citar-latex-citation-at-point)
       (list-keys . citar-latex-list-keys)))
     ((typst-ts-mode) .
-     ((insert-keys . citar-typst-insert-keys)
+     ((local-bib-files . citar-typst-local-bib-files)
+      ;; (insert-keys . citar-typst-insert-keys)
       (insert-citation . citar-typst-insert-citation)
       (insert-edit . citar-typst-insert-edit)
       (key-at-point . citar-typst-key-at-point)
