@@ -13,7 +13,8 @@
 (require 'citar)
 (require 'treesit)
 
-(defun citar-typst--get-local-bib ()
+;;;###autoload
+(defun citar-typst-local-bib-files ()
   (let ((query (treesit-query-compile
                 'typst
                 '((call
@@ -30,8 +31,9 @@
   (message "Implement me!"))
 
 ;;;###autoload
-(defun citar-typst-insert-citation ()
-  (message "Implement me!"))
+(defun citar-typst-insert-citation (keys &optional invert-prompt command)
+  "Insert a citation consisting of KEYS."
+  (insert (string-join (mapcar #'(lambda (k) (format "@%s" k)) keys) " ")))
 
 ;;;###autoload
 (defun citar-typst-insert-edit ()
@@ -39,14 +41,17 @@
 
 ;;;###autoload
 (defun citar-typst-key-at-point ()
-  (message "Implement me!"))
+  (message "Implement me!")
+  nil)
 
 ;;;###autoload
 (defun citar-typst-citation-at-point ()
-  (message "Implement me!"))
+  (message "Implement me!")
+  nil)
 
 ;;;###autoload
 (defun citar-typst-list-keys ()
-  (message "Implement me!"))
+  (message "Implement me!")
+  '())
 
 (provide 'citar-typst)
