@@ -19,11 +19,12 @@
                 'typst
                 '((call
                    item: (_) @fn
-                   (group
-                    (_) @bib-file)
+                   (group (_) @bib-file)
                    (:equal @fn "bibliography"))))))
-    (when-let* ((local-bib (treesit-node-text
-                            (cdr (assoc 'bib-file (treesit-query-capture (treesit-buffer-root-node) query))))))
+    (when-let* ((local-bib
+                 (treesit-node-text
+                  (cdr (assoc 'bib-file
+                              (treesit-query-capture (treesit-buffer-root-node) query))))))
       (substring-no-properties local-bib 1 -1))))
 
 ;;;###autoload
@@ -46,8 +47,10 @@
 
 ;;;###autoload
 (defun citar-typst-citation-at-point ()
-  (message "Implement me!")
-  nil)
+  (save-excursion
+    (backward-word)
+    (when (re-search-forward "@\\([-_[:alnum:]]+\\)" nil 'noerror)
+      (match-string-no-properties 1))))
 
 ;;;###autoload
 (defun citar-typst-list-keys ()
